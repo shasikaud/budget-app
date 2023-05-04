@@ -15,8 +15,8 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h4> Welcome {userName} </h4>
             Dashboard
+            <h4> Welcome {userName} </h4>
         </div>
     )
 }
