@@ -1,10 +1,17 @@
+// ref: https://www.youtube.com/watch?v=KeeYaNnWd1k&list=PL4cUxeGkcC9iNnY07bh_UPaRIQZcJfARY&index=6
+
+// RRD
 import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
 
+// library
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Routes
-import Dashboard, { dashboardLoader } from "./pages/Dashboard";
+import Dashboard, { dashboardAction, dashboardLoader } from "./pages/Dashboard";
 import Error from "./pages/Error";
 
 // Layouts
@@ -24,6 +31,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Dashboard/>,
         loader: dashboardLoader,
+        action: dashboardAction,
         errorElement: <Error/>
       },
       {
@@ -41,6 +49,8 @@ const router = createBrowserRouter([
 function App() {
   return <div className="App">
     <RouterProvider router={router} />
+    {/* add toast container here makes this avaible everywhere within the App*/}
+    <ToastContainer /> 
   </div>;
 }
 
